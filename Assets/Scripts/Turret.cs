@@ -58,6 +58,9 @@ public class Turret : MonoBehaviour
             Bullet bulletScript1 = bullet1.GetComponent<Bullet>();
             Bullet bulletScript2 = bullet2.GetComponent<Bullet>();
             Bullet bulletScript3 = bullet3.GetComponent<Bullet>();
+
+            //firingPoint[1].position += firingPoint[1].position * 5f * Time.deltaTime;
+
             bulletScript1.SetTarget(firingPoint[1]);
             bulletScript2.SetTarget(firingPoint[2]);
             bulletScript3.SetTarget(firingPoint[3]);
