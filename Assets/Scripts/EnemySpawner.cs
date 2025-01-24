@@ -17,11 +17,11 @@ public class EnemySpawner : MonoBehaviour
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
 
-    private int currentWave = 1;
-    private float timeSinceLastSpawn;
-    private int enemiesAlive;
-    private int enemiesLeftToSpawn;
-    private bool isSpawning= false;
+    [SerializeField] private int currentWave = 1;
+    [SerializeField] private float timeSinceLastSpawn;
+    [SerializeField] private int enemiesAlive;
+    [SerializeField] private int enemiesLeftToSpawn;
+    [SerializeField] private bool isSpawning= false;
 
     private void Awake()
     {
@@ -69,12 +69,13 @@ public class EnemySpawner : MonoBehaviour
     {
         isSpawning = false;
         timeSinceLastSpawn = 0f;
+        currentWave++;
         StartCoroutine(StartWave());
     }
 
     private void SpawnEnemy()
     {
-        Debug.Log("<color=green>Spawn Enemy</color>");
+        //Debug.Log("<color=green>Spawn Enemy</color>");
         GameObject prefabToSpawn = enemyPrefabs[0];
         Instantiate(prefabToSpawn, LevelManager.instance.startPoint.position, Quaternion.identity);
     }
