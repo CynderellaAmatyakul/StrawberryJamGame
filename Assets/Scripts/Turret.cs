@@ -9,7 +9,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform firingPoint;
+    [SerializeField] private Transform[] firingPoint;
 
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 5f;
@@ -46,9 +46,22 @@ public class Turret : MonoBehaviour
 
     private void Shoot()
     {
-        Debug.Log("<color=green>Shoot</color>");
-        GameObject bullet = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
+        //Debug.Log("<color=green>Shoot</color>");
+        GameObject bullet = Instantiate(bulletPrefab, firingPoint[0].position, Quaternion.identity);
         Bullet bulletScript = bullet.GetComponent<Bullet>();
+
+        if (name == "Milo")
+        {
+            GameObject bullet1 = Instantiate(bulletPrefab, firingPoint[1].position, Quaternion.identity);
+            GameObject bullet2 = Instantiate(bulletPrefab, firingPoint[2].position, Quaternion.identity);
+            GameObject bullet3 = Instantiate(bulletPrefab, firingPoint[3].position, Quaternion.identity);
+            Bullet bulletScript1 = bullet1.GetComponent<Bullet>();
+            Bullet bulletScript2 = bullet2.GetComponent<Bullet>();
+            Bullet bulletScript3 = bullet3.GetComponent<Bullet>();
+            bulletScript1.SetTarget(firingPoint[1]);
+            bulletScript2.SetTarget(firingPoint[2]);
+            bulletScript3.SetTarget(firingPoint[3]);
+        }
         bulletScript.SetTarget(target);
     }
 
