@@ -3896,10 +3896,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
-  baseEnemies: 8
+  - {fileID: 2233438651123437442, guid: d59c95dd9141fbd49b1b9a08446e61a4, type: 3}
+  baseEnemies: 5
   enemiesPerSecond: 0.5
   timeBetweenWaves: 5
-  difficultyScalingFactor: 0.75
+  difficultyScalingFactor: 0.2
+  wave3:
+  - {fileID: 2233438651123437442, guid: d59c95dd9141fbd49b1b9a08446e61a4, type: 3}
+  - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
+  - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
+  - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
+  - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
+  - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
+  wave4:
+  - {fileID: 2233438651123437442, guid: d59c95dd9141fbd49b1b9a08446e61a4, type: 3}
+  - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
+  - {fileID: 2233438651123437442, guid: d59c95dd9141fbd49b1b9a08446e61a4, type: 3}
+  - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
+  - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
+  - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
+  - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
+  - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
+  - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
+  wave5:
+  - {fileID: 2233438651123437442, guid: d59c95dd9141fbd49b1b9a08446e61a4, type: 3}
+  - {fileID: 2233438651123437442, guid: d59c95dd9141fbd49b1b9a08446e61a4, type: 3}
+  - {fileID: 2233438651123437442, guid: d59c95dd9141fbd49b1b9a08446e61a4, type: 3}
+  - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
+  - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
+  - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
+  - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
+  - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
   currentWave: 1
   timeSinceLastSpawn: 0
   enemiesAlive: 0
