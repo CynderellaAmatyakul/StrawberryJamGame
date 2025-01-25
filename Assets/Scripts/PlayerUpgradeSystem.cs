@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class PlayerUpgradeSystem : MonoBehaviour
 {
@@ -15,6 +14,7 @@ public class PlayerUpgradeSystem : MonoBehaviour
 
     [Header("Sprite References")]
     [SerializeField] private Sprite[] playerSprites;
+    [SerializeField] private GameObject[] inventorySprites;
 
     private PlayerController playerController;
     private LevelManager levelManager;
@@ -25,6 +25,7 @@ public class PlayerUpgradeSystem : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         levelManager = LevelManager.instance;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        UpdatePlayerStats(); // Initial setup
     }
 
     public void AttemptUpgrade()
@@ -51,6 +52,16 @@ public class PlayerUpgradeSystem : MonoBehaviour
         if (playerSprites.Length > currentUpgradeLevel)
         {
             spriteRenderer.sprite = playerSprites[currentUpgradeLevel];
+        }
+
+        if (currentUpgradeLevel == 1)
+        {
+            inventorySprites[0].SetActive(true);
+        }
+
+        if (currentUpgradeLevel == 2)
+        {
+            inventorySprites[1].SetActive(true);
         }
     }
 }

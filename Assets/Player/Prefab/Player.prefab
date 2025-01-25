@@ -187,3 +187,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1b69e8ffead03cd46970f1404ca6c944, type: 3}
   - {fileID: 21300000, guid: 355ca5cef51e5ce43b051193fc2ecfd3, type: 3}
   - {fileID: 21300000, guid: c486ae8b9297ba54c94cb54744d2a006, type: 3}
+  inventorySprites:
+  - {fileID: 0}
+  - {fileID: 0}
