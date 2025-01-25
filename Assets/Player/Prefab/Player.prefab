@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 715596739034940830}
   - component: {fileID: 2223803948654029245}
   - component: {fileID: 2180389802912982340}
+  - component: {fileID: 7798843553730893692}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -103,8 +104,6 @@ MonoBehaviour:
   inventory:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!70 &2223803948654029245
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -167,3 +166,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7798843553730893692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2380721933581556695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3fe3ed0ef7ec04bb70e6e5a9b64f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeCost: 700
+  basePlayerSpeed: 2
+  speedIncreasePerLevel: 1
+  currentUpgradeLevel: 0
+  maxUpgradeLevel: 2
+  playerSprites:
+  - {fileID: 21300000, guid: 1b69e8ffead03cd46970f1404ca6c944, type: 3}
+  - {fileID: 21300000, guid: 355ca5cef51e5ce43b051193fc2ecfd3, type: 3}
+  - {fileID: 21300000, guid: c486ae8b9297ba54c94cb54744d2a006, type: 3}
