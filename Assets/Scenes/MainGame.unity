@@ -873,7 +873,7 @@ GameObject:
   - component: {fileID: 364731793}
   - component: {fileID: 364731792}
   m_Layer: 5
-  m_Name: BasicTurret (4)
+  m_Name: ShowkuyTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1129,7 +1129,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.5245282, g: 0.10985403, b: 0.11211292, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1498,7 +1498,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 746609936}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1754863039}
+        m_TargetAssemblyTypeName: BuildingManager, Assembly-CSharp
+        m_MethodName: SetSelectedTower
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &746609936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2827,7 +2839,7 @@ GameObject:
   - component: {fileID: 1418772458}
   - component: {fileID: 1418772457}
   m_Layer: 5
-  m_Name: BasicTurret (5)
+  m_Name: Sell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3016,7 +3028,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1458081049}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1610213950}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: ToggleMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1458081049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3068,7 +3092,7 @@ GameObject:
   - component: {fileID: 1592937340}
   - component: {fileID: 1592937339}
   m_Layer: 5
-  m_Name: BasicTurret (3)
+  m_Name: MiloTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3188,6 +3212,7 @@ GameObject:
   - component: {fileID: 1610213949}
   - component: {fileID: 1610213948}
   - component: {fileID: 1610213950}
+  - component: {fileID: 1610213951}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -3269,6 +3294,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currencyUI: {fileID: 1713128295}
+  anim: {fileID: 1610213951}
+--- !u!95 &1610213951
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610213946}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 00081fbe13aae7143b26a6f6ef6c41e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1614270734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3874,6 +3921,9 @@ MonoBehaviour:
   - towerName: Basic
     cost: 100
     prefab: {fileID: 6084611726901363365, guid: bda7ba959059fc143a304b7b3818f337, type: 3}
+  - towerName: Sniper
+    cost: 500
+    prefab: {fileID: 3243570055126560630, guid: cab89079babc3d741972e34114d7460c, type: 3}
 --- !u!1001 &1759535476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4429,7 +4479,7 @@ GameObject:
   - component: {fileID: 2002621078}
   - component: {fileID: 2002621077}
   m_Layer: 5
-  m_Name: BasicTurret (2)
+  m_Name: SniperTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4581,7 +4631,7 @@ GameObject:
   - component: {fileID: 2074793557}
   - component: {fileID: 2074793556}
   m_Layer: 5
-  m_Name: BasicTurret (1)
+  m_Name: SlowTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4650,7 +4700,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2074793557}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1754863039}
+        m_TargetAssemblyTypeName: BuildingManager, Assembly-CSharp
+        m_MethodName: SetSelectedTower
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2074793557
 MonoBehaviour:
   m_ObjectHideFlags: 0
