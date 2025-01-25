@@ -19,6 +19,6 @@ public class Menu : MonoBehaviour
 
     private void OnGUI()
     {
-        currencyUI.text = LevelManager.instance.currency.ToString();
+        currencyUI.text = LevelManager.instance.currency.ToString() + " ß";
     }
 }
