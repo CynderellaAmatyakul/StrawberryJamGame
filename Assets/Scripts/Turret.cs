@@ -21,6 +21,7 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
+        timeUnitFire += Time.deltaTime;
         if (target == null)
         {
             FindTarget();
@@ -34,8 +35,7 @@ public class Turret : MonoBehaviour
         }
         else
         {
-            timeUnitFire += Time.deltaTime;
-
+            
             if (timeUnitFire >= 1f / bps)
             {
                 Shoot();
