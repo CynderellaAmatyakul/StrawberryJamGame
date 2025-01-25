@@ -43,8 +43,11 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 direction = (target.position - transform.position).normalized;
-
         rb.velocity = direction * moveSpeed;
+
+        // Rotate to face movement direction
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     public void UpdateSpeed(float newSpeed)
