@@ -9,10 +9,14 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] enemyPrefabs;
 
     [Header("Attributes")]
-    [SerializeField] private int baseEnemies = 8;
+    [SerializeField] private int baseEnemies = 5;
     [SerializeField] private float enemiesPerSecond = 0.5f;
     [SerializeField] private float timeBetweenWaves = 5f;
-    [SerializeField] private float difficultyScalingFactor = 0.75f;
+    [SerializeField] private float difficultyScalingFactor = 0.20f;
+    [SerializeField] private float enemiesPerSecCap = 10f;
+    [SerializeField] private List<GameObject> wave3;
+    [SerializeField] private List<GameObject> wave4;
+    [SerializeField] private List<GameObject> wave5;
 
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
@@ -21,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float timeSinceLastSpawn;
     [SerializeField] private int enemiesAlive;
     [SerializeField] private int enemiesLeftToSpawn;
+    [SerializeField] private float eps;
     [SerializeField] private bool isSpawning= false;
 
     private void Awake()
@@ -39,9 +44,11 @@ public class EnemySpawner : MonoBehaviour
 
         timeSinceLastSpawn += Time.deltaTime;
 
-        if (timeSinceLastSpawn >= (1f / enemiesPerSecond) && enemiesLeftToSpawn > 0)
+        //Debug.Log(currentWave);
+
+        if (timeSinceLastSpawn >= (1f / eps) && enemiesLeftToSpawn > 0)
         {
-            SpawnEnemy();
+            SpawnEnemy(currentWave);
             enemiesLeftToSpawn--;
             enemiesAlive++;
             timeSinceLastSpawn = 0f;
@@ -63,6 +70,7 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenWaves);
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
+        eps = EnemiesPerSecond();
     }
 
     private void EndWave()
@@ -73,15 +81,38 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(StartWave());
     }
 
-    private void SpawnEnemy()
+    private void SpawnEnemy(int wavesCount)
     {
-        //Debug.Log("<color=green>Spawn Enemy</color>");
-        GameObject prefabToSpawn = enemyPrefabs[0];
-        Instantiate(prefabToSpawn, LevelManager.instance.startPoint.position, Quaternion.identity);
+        if (wavesCount <= 2)
+        {
+            //Debug.Log("<color=green>Spawn Enemy</color>");
+            GameObject prefabToSpawn = enemyPrefabs[0];
+            Instantiate(prefabToSpawn, LevelManager.instance.startPoint.position, Quaternion.identity);
+        }
+        else if (wavesCount == 3)
+        {
+            Instantiate(wave3[0], LevelManager.instance.startPoint.position, Quaternion.identity);
+            wave3.RemoveAt(0);
+        }
+        else if (wavesCount == 4)
+        {
+            Instantiate(wave4[0], LevelManager.instance.startPoint.position, Quaternion.identity);
+            wave3.RemoveAt(0);
+        }
+        else if (wavesCount == 5)
+        {
+            Instantiate(wave5[0], LevelManager.instance.startPoint.position, Quaternion.identity);
+            wave3.RemoveAt(0);
+        }
     }
 
     private int EnemiesPerWave()
     {
         return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScalingFactor));
+    }
+
+    private float EnemiesPerSecond()
+    {
+        return Mathf.Clamp(enemiesPerSecond * Mathf.Pow(currentWave, difficultyScalingFactor), 0f, enemiesPerSecCap);
     }
 }
