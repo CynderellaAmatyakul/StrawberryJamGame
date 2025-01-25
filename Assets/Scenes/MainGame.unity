@@ -3921,6 +3921,9 @@ MonoBehaviour:
   - towerName: Basic
     cost: 100
     prefab: {fileID: 6084611726901363365, guid: bda7ba959059fc143a304b7b3818f337, type: 3}
+  - towerName: Slow
+    cost: 150
+    prefab: {fileID: 7698486200106287644, guid: cbf81a92613325c47b58843d683d7ef3, type: 3}
   - towerName: Sniper
     cost: 500
     prefab: {fileID: 3243570055126560630, guid: cab89079babc3d741972e34114d7460c, type: 3}
@@ -4548,7 +4551,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2002621078}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1754863039}
+        m_TargetAssemblyTypeName: BuildingManager, Assembly-CSharp
+        m_MethodName: SetSelectedTower
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2002621078
 MonoBehaviour:
   m_ObjectHideFlags: 0
