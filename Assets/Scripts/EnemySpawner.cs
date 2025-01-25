@@ -85,24 +85,23 @@ public class EnemySpawner : MonoBehaviour
     {
         if (wavesCount <= 2)
         {
-            //Debug.Log("<color=green>Spawn Enemy</color>");
             GameObject prefabToSpawn = enemyPrefabs[0];
             Instantiate(prefabToSpawn, LevelManager.instance.startPoint.position, Quaternion.identity);
         }
-        else if (wavesCount == 3)
+        else if (wavesCount == 3 && wave3.Count > 0)
         {
             Instantiate(wave3[0], LevelManager.instance.startPoint.position, Quaternion.identity);
             wave3.RemoveAt(0);
         }
-        else if (wavesCount == 4)
+        else if (wavesCount == 4 && wave4.Count > 0)
         {
             Instantiate(wave4[0], LevelManager.instance.startPoint.position, Quaternion.identity);
-            wave3.RemoveAt(0);
+            wave4.RemoveAt(0);
         }
-        else if (wavesCount == 5)
+        else if (wavesCount == 5 && wave5.Count > 0)
         {
             Instantiate(wave5[0], LevelManager.instance.startPoint.position, Quaternion.identity);
-            wave3.RemoveAt(0);
+            wave5.RemoveAt(0);
         }
     }
 

@@ -4336,7 +4336,7 @@ MonoBehaviour:
   - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
   - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
   - {fileID: 2145010164303902211, guid: 086c0b12676a0804797e95bc7fbed2a0, type: 3}
-  currentWave: 1
+  currentWave: 4
   timeSinceLastSpawn: 0
   enemiesAlive: 0
   enemiesLeftToSpawn: 0
