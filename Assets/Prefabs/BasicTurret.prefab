@@ -202,4 +202,4 @@ MonoBehaviour:
   - {fileID: 2653708079360628822}
   targetingRange: 1.5
   rotationSpeed: 1000
-  bps: 1.5
+  bps: 0.75
