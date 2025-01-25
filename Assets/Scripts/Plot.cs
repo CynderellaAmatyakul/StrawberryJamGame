@@ -38,21 +38,28 @@ public class Plot : MonoBehaviour
     {
         if (tower != null) return;
 
+        PlayerController playerController = GameObject.FindObjectOfType<PlayerController>();
         Tower towerToBuild = BuildingManager.Instance.GetSelectedTower();
-        if (towerToBuild.cost > LevelManager.instance.currency)
-        {
-            return;
-        }
 
-        if (target == null)
+        for (int i = 0; i < playerController.inventory.Length; i++)
         {
-            target = GameObject.FindWithTag("Player");
-        }
+            if (playerController.inventory[i] != null)
+            {
+                if (target == null)
+                {
+                    target = GameObject.FindWithTag("Player");
+                }
 
-        if (target != null && CheckTargetIsInRange())
-        {
-            LevelManager.instance.SpendCurrency(towerToBuild.cost);
-            tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
+                if (target != null && CheckTargetIsInRange())
+                {
+                    tower = playerController.inventory[i];
+                    tower.transform.position = transform.position;
+                    tower.SetActive(true);
+                    tower.tag = "Tower";
+                    playerController.inventory[i] = null;
+                    break;
+                }
+            }
         }
     }
 

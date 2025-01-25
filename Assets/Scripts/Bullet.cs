@@ -1,36 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     [Header("Reference")]
-    [SerializeField] private Rigidbody2D rb;
-
-    [Header("Attributes")]
     [SerializeField] private float bulletSpeed = 5f;
     [SerializeField] private int bulletDamage = 1;
 
-    private Transform target;
-    private Vector3 target1;
+    private Vector3 direction;
+    private Vector3 targetInitialPosition;
 
     public void SetTarget(Transform _target)
     {
-        target = _target;
+        targetInitialPosition = _target.position;
     }
 
-    private void FixedUpdate()
+    private void Start()
     {
-        if (!target) return;
-        Vector2 direction = (target.position - transform.position).normalized;
-        rb.velocity = direction * bulletSpeed;
-
-        //transform.position += target1 * bulletSpeed * Time.deltaTime;
+        direction = (targetInitialPosition - transform.position).normalized;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Update()
     {
+        transform.Translate(direction * bulletSpeed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Hit");
         collision.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
-        Destroy(gameObject);
+        if (gameObject.name != "SniperBoba(Clone)")
+        {
+            Destroy(gameObject);
+        }
     }
 }

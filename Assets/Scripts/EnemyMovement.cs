@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [Header("Reference")]
-    [SerializeField] private Rigidbody2D rb;
-
     [Header("Attributes")]
     [SerializeField] private float moveSpeed = 2f;
-
     private Transform target;
     private int pathIndex = 0;
-
     private float baseSpeed;
 
     private void Start()
@@ -23,28 +16,28 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        if (target == null) return;
+
+        // Move directly towards target
+        Vector3 moveDirection = (target.position - transform.position).normalized;
+        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+
+        // Check if reached target waypoint
         if (Vector2.Distance(target.position, transform.position) <= 0.1f)
         {
             pathIndex++;
-
             if (pathIndex == LevelManager.instance.path.Length)
             {
                 EnemySpawner.onEnemyDestroy.Invoke();
                 Destroy(gameObject);
                 return;
             }
-            else
-            {
-                target = LevelManager.instance.path[pathIndex];
-            }
+            target = LevelManager.instance.path[pathIndex];
         }
-    }
 
-    private void FixedUpdate()
-    {
-        Vector2 direction = (target.position - transform.position).normalized;
-
-        rb.velocity = direction * moveSpeed;
+        // Rotate to face movement direction
+        float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg + 90f;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     public void UpdateSpeed(float newSpeed)
