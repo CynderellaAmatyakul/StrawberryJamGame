@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class PlayerUpgradeSystem : MonoBehaviour
 {
@@ -11,13 +10,11 @@ public class PlayerUpgradeSystem : MonoBehaviour
 
     [Header("Progression")]
     [SerializeField] private int currentUpgradeLevel = 0;
-    [SerializeField] private int maxUpgradeLevel = 3;
+    [SerializeField] private int maxUpgradeLevel = 2;
 
     [Header("Sprite References")]
     [SerializeField] private Sprite[] playerSprites;
-
-    [Header("UI References")]
-    [SerializeField] private Button upgradeButton;
+    [SerializeField] private GameObject[] inventorySprites;
 
     private PlayerController playerController;
     private LevelManager levelManager;
@@ -28,12 +25,10 @@ public class PlayerUpgradeSystem : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         levelManager = LevelManager.instance;
         spriteRenderer = GetComponent<SpriteRenderer>();
-
-        upgradeButton.onClick.AddListener(AttemptUpgrade);
-        UpdateUI();
+        UpdatePlayerStats(); // Initial setup
     }
 
-    private void AttemptUpgrade()
+    public void AttemptUpgrade()
     {
         if (currentUpgradeLevel >= maxUpgradeLevel)
         {
@@ -45,26 +40,28 @@ public class PlayerUpgradeSystem : MonoBehaviour
         {
             currentUpgradeLevel++;
             UpdatePlayerStats();
-            UpdateUI();
         }
     }
 
     private void UpdatePlayerStats()
     {
-        int newInventorySize = 1 + currentUpgradeLevel;
+        int newInventorySize = 2 + currentUpgradeLevel;
         playerController.inventory = new GameObject[newInventorySize];
         playerController.playerSpeed = basePlayerSpeed + (speedIncreasePerLevel * currentUpgradeLevel);
 
-        // Change sprite based on upgrade level
         if (playerSprites.Length > currentUpgradeLevel)
         {
             spriteRenderer.sprite = playerSprites[currentUpgradeLevel];
         }
-    }
 
-    private void UpdateUI()
-    {
-        upgradeButton.interactable = currentUpgradeLevel < maxUpgradeLevel &&
-                                     levelManager.currency >= upgradeCost;
+        if (currentUpgradeLevel == 1)
+        {
+            inventorySprites[0].SetActive(true);
+        }
+
+        if (currentUpgradeLevel == 2)
+        {
+            inventorySprites[1].SetActive(true);
+        }
     }
 }
