@@ -125,6 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3777402001854870307}
   - component: {fileID: 3477772094413993661}
+  - component: {fileID: 751955292597569378}
   m_Layer: 0
   m_Name: SlowTurret
   m_TagString: Untagged
@@ -167,6 +168,41 @@ MonoBehaviour:
   slowSpeed: 0.5
   freezeTime: 2
   aps: 0.25
+--- !u!58 &751955292597569378
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7698486200106287644}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &7912677557652503905
 GameObject:
   m_ObjectHideFlags: 0

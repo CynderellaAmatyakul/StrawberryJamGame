@@ -43,6 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8108961330709377059}
   - component: {fileID: 5238851214086551315}
+  - component: {fileID: 1183314335154645448}
   m_Layer: 0
   m_Name: SniperTurret
   m_TagString: Untagged
@@ -82,12 +83,47 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
-  bulletPrefab: {fileID: 7929994557189605356, guid: 98a4943779331f84a8d67cba3d5d8ada, type: 3}
+  bulletPrefab: {fileID: 994049577090187042, guid: 8b449cf49df722c45a8bd92958d29543, type: 3}
   firingPoint:
   - {fileID: 2358933424896704729}
   targetingRange: 3.5
   rotationSpeed: 1000
   bps: 0.5
+--- !u!58 &1183314335154645448
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243570055126560630}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &5826159140426152682
 GameObject:
   m_ObjectHideFlags: 0

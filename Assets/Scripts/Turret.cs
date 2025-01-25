@@ -21,6 +21,8 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
+        if (gameObject.tag == "Pickup") return;
+
         timeUnitFire += Time.deltaTime;
         if (target == null)
         {
