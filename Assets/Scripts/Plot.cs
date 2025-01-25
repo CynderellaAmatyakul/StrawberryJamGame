@@ -37,27 +37,28 @@ public class Plot : MonoBehaviour
     private void OnMouseDown()
     {
         if (tower != null) return;
-
         PlayerController playerController = GameObject.FindObjectOfType<PlayerController>();
         Tower towerToBuild = BuildingManager.Instance.GetSelectedTower();
-
         for (int i = 0; i < playerController.inventory.Length; i++)
         {
             if (playerController.inventory[i] != null)
             {
-                if (target == null)
+                // Add name check to ensure only specific items can be placed
+                if (!playerController.inventory[i].name.Contains("Bucket of boba(Clone)"))
                 {
-                    target = GameObject.FindWithTag("Player");
-                }
-
-                if (target != null && CheckTargetIsInRange())
-                {
-                    tower = playerController.inventory[i];
-                    tower.transform.position = transform.position;
-                    tower.SetActive(true);
-                    tower.tag = "Tower";
-                    playerController.inventory[i] = null;
-                    break;
+                    if (target == null)
+                    {
+                        target = GameObject.FindWithTag("Player");
+                    }
+                    if (target != null && CheckTargetIsInRange())
+                    {
+                        tower = playerController.inventory[i];
+                        tower.transform.position = transform.position;
+                        tower.SetActive(true);
+                        tower.tag = "Tower";
+                        playerController.inventory[i] = null;
+                        break;
+                    }
                 }
             }
         }
