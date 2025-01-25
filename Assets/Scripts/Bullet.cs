@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private int bulletDamage = 1;
 
     private Transform target;
+    private Vector3 target1;
 
     public void SetTarget(Transform _target)
     {
@@ -21,10 +22,10 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate()
     {
         if (!target) return;
-
         Vector2 direction = (target.position - transform.position).normalized;
-
         rb.velocity = direction * bulletSpeed;
+
+        //transform.position += target1 * bulletSpeed * Time.deltaTime;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

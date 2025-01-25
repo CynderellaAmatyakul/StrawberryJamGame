@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7482739031933648203}
   - component: {fileID: 6615109157511643384}
   - component: {fileID: 6641037085179886176}
+  - component: {fileID: -399062727328602112}
   m_Layer: 0
   m_Name: Plot
   m_TagString: Untagged
@@ -130,3 +131,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-399062727328602112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331383132255961841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44105131a253b6418bbae2ccb12381f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sr: {fileID: 6615109157511643384}
+  hoverColor: {r: 0.4132787, g: 0.8867924, b: 0.44197646, a: 1}
