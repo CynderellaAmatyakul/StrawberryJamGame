@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Plot : MonoBehaviour
@@ -8,12 +9,19 @@ public class Plot : MonoBehaviour
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Color hoverColor;
 
+    [Header("Attribute")]
+    [SerializeField] private float targetingRange = 5f;
+
     private GameObject tower;
     private Color startColor;
+
+    private GameObject target;
 
     private void Start()
     {
         startColor = sr.color;
+
+        target = GameObject.FindWithTag("Player");
     }
 
     private void OnMouseEnter()
@@ -28,18 +36,34 @@ public class Plot : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //Debug.LogFormat("<color=green>Build {0} here</color>", name);
         if (tower != null) return;
-        
-        Tower towerToBuild = BuildingManager.Instance.GetSelectedTower();
 
+        Tower towerToBuild = BuildingManager.Instance.GetSelectedTower();
         if (towerToBuild.cost > LevelManager.instance.currency)
         {
             return;
         }
 
-        LevelManager.instance.SpendCurrency(towerToBuild.cost);
+        if (target == null)
+        {
+            target = GameObject.FindWithTag("Player");
+        }
 
-        tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
+        if (target != null && CheckTargetIsInRange())
+        {
+            LevelManager.instance.SpendCurrency(towerToBuild.cost);
+            tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
+        }
+    }
+
+    private bool CheckTargetIsInRange()
+    {
+        return Vector2.Distance(target.transform.position, transform.position) <= targetingRange;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Handles.color = Color.red;
+        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
     }
 }

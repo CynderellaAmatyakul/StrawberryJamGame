@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -399062727328602112}
   m_Layer: 0
   m_Name: Plot
-  m_TagString: Untagged
+  m_TagString: Plot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,3 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 6615109157511643384}
   hoverColor: {r: 0.4132787, g: 0.8867924, b: 0.44197646, a: 1}
+  targetingRange: 1.5

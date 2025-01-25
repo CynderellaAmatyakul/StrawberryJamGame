@@ -5,22 +5,39 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    private Rigidbody2D rb;
-    private Vector2 _moveInput;
+    [Header("Attributes")]
+    [SerializeField] private float playerSpeed = 2f;
+    [SerializeField] public GameObject[] inventory = new GameObject[4];
+    private Vector2 targetPosition;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        targetPosition = transform.position;
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-        rb.velocity = _moveInput * moveSpeed;
-    }
 
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        _moveInput =context.ReadValue<Vector2>();
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+
+            if (hit.collider != null)
+            {
+                if (hit.collider.CompareTag("Plot"))
+                {
+                    targetPosition = mousePosition;
+                }
+            }
+        }
+
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * playerSpeed);
     }
 }
