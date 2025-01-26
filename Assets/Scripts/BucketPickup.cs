@@ -21,6 +21,7 @@ public class BucketPickup : MonoBehaviour
                 // Destroy the item from inventory
                 Destroy(playerController.inventory[i]);
                 playerController.inventory[i] = null;
+                playerController.UpdateInventoryUI();
 
                 break;
             }

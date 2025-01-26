@@ -104,6 +104,11 @@ MonoBehaviour:
   inventory:
   - {fileID: 0}
   - {fileID: 0}
+  inventorySlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!70 &2223803948654029245
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
