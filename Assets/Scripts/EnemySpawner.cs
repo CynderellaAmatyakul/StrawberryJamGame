@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [Header("Reference")]
     [SerializeField] private GameObject[] enemyPrefabs;
+    [SerializeField] private GameObject victoryPanel;
 
     [Header("Attributes")]
     [SerializeField] private float enemiesPerSecond = 0.5f;
@@ -66,6 +67,8 @@ public class EnemySpawner : MonoBehaviour
         {
             EndWave();
         }
+
+        CheckWaveCompletion();
     }
 
     private void EnemyDestroyed()
@@ -85,7 +88,10 @@ public class EnemySpawner : MonoBehaviour
     {
         isSpawning = false;
         timeSinceLastSpawn = 0f;
-        currentWave++;
+        if (currentWave != 10)
+        {
+            currentWave++;
+        }
         StartCoroutine(StartWave());
     }
 
@@ -169,5 +175,26 @@ public class EnemySpawner : MonoBehaviour
     private float EnemiesPerSecond()
     {
         return Mathf.Clamp(enemiesPerSecond * Mathf.Pow(currentWave, difficultyScalingFactor), 0f, enemiesPerSecCap);
+    }
+
+    private void CheckWaveCompletion()
+    {
+        if (currentWave == 10 && enemiesAlive == 0 && enemiesLeftToSpawn == 0)
+        {
+            // Wave 10 (final wave) is defeated
+            GameWon();
+        }
+    }
+
+    private void GameWon()
+    {
+        // Stop spawning
+        isSpawning = false;
+
+        // Show victory screen or trigger win condition
+        victoryPanel.SetActive(true);
+
+        // Optional: Trigger additional win events
+        Time.timeScale = 0f; // Pause game
     }
 }
