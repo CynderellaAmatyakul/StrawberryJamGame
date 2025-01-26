@@ -88,7 +88,7 @@ MonoBehaviour:
   - {fileID: 2358933424896704729}
   targetingRange: 3.5
   rotationSpeed: 1000
-  bps: 0.5
+  bps: 0.15
 --- !u!58 &1183314335154645448
 CircleCollider2D:
   m_ObjectHideFlags: 0

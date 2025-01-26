@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d49994755751f4aa9a8517047f3fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 2
+  playerSpeed: 2.5
   inventory:
   - {fileID: 0}
   - {fileID: 0}
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeCost: 700
-  basePlayerSpeed: 2
+  basePlayerSpeed: 2.5
   speedIncreasePerLevel: 1
   currentUpgradeLevel: 0
   maxUpgradeLevel: 2

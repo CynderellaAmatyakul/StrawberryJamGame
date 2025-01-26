@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Attributes")]
-    [SerializeField] public float playerSpeed = 2f;
+    [SerializeField] public float playerSpeed = 3f;
     [SerializeField] public GameObject[] inventory = new GameObject[1];
     private Vector2 targetPosition;
 
