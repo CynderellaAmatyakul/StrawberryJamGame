@@ -57,6 +57,7 @@ public class Plot : MonoBehaviour
                         tower.SetActive(true);
                         tower.tag = "Tower";
                         playerController.inventory[i] = null;
+                        playerController.UpdateInventoryUI();
                         break;
                     }
                 }

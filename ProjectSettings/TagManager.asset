@@ -7,6 +7,7 @@ TagManager:
   - Plot
   - Pickup
   - Tower
+  - Enemy
   layers:
   - Default
   - TransparentFX

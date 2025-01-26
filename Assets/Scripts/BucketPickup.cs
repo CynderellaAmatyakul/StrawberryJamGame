@@ -5,7 +5,7 @@ public class BucketPickup : MonoBehaviour
     [Header("Attribute")]
     [SerializeField] private int currencyInterval = 100;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
 
@@ -21,6 +21,7 @@ public class BucketPickup : MonoBehaviour
                 // Destroy the item from inventory
                 Destroy(playerController.inventory[i]);
                 playerController.inventory[i] = null;
+                playerController.UpdateInventoryUI();
 
                 break;
             }

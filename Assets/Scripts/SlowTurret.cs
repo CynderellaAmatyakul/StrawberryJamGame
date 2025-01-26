@@ -7,6 +7,7 @@ public class SlowTurret : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private LayerMask enemyMask;
+    [SerializeField] private GameObject radiusIndicatior;
 
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 5f;
@@ -32,6 +33,8 @@ public class SlowTurret : MonoBehaviour
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, enemyMask);
 
+        radiusIndicatior.SetActive(true);
+
         if (hits.Length > 0)
         {
             for (int i = 0; i < hits.Length; i++)
@@ -51,6 +54,7 @@ public class SlowTurret : MonoBehaviour
         yield return new WaitForSeconds(freezeTime);
 
         em.ResetSpeed();
+        radiusIndicatior.SetActive(false);
     }
 
     private void OnDrawGizmosSelected()
