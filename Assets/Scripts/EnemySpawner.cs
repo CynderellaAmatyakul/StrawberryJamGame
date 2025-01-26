@@ -91,7 +91,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnGUI()
     {
-        waveCountText.text = "Wave " + currentWave.ToString();
+        waveCountText.text = "Wave " + currentWave.ToString() + "/10";
     }
 
     private void SpawnEnemy(int wavesCount)
