@@ -15,6 +15,7 @@ public class PlayerUpgradeSystem : MonoBehaviour
     [Header("Sprite References")]
     [SerializeField] private Sprite[] playerSprites;
     [SerializeField] private GameObject[] inventorySprites;
+    [SerializeField] private GameObject[] salengButton;
 
     private PlayerController playerController;
     private LevelManager levelManager;
@@ -38,7 +39,12 @@ public class PlayerUpgradeSystem : MonoBehaviour
 
         if (levelManager.SpendCurrency(upgradeCost))
         {
+            salengButton[currentUpgradeLevel].SetActive(false);
             currentUpgradeLevel++;
+            if (currentUpgradeLevel != 2)
+            {
+                salengButton[currentUpgradeLevel].SetActive(true);
+            }
             UpdatePlayerStats();
         }
     }
