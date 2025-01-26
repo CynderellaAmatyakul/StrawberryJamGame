@@ -148,3 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoint: 2
+  Hit: {fileID: 8300000, guid: be0208129b1ff234991db253cf33db0e, type: 3}
+  DeadAS: {fileID: 8300000, guid: 8cf7ddcce85e77b4fad27703d2b63a01, type: 3}
+  audioSource: {fileID: 0}

@@ -6,16 +6,21 @@ public class Health : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private int hitPoint = 2;
+    [SerializeField] public AudioClip Hit;
+    [SerializeField] public AudioClip DeadAS;
+    [SerializeField] private AudioSource audioSource;
 
     private bool isDestroyed = false;
 
     public void TakeDamage(int damage)
     {
+
         hitPoint -= damage;
 
         if (hitPoint <= 0 && !isDestroyed)
         {
             EnemySpawner.onEnemyDestroy.Invoke();
+
             isDestroyed = true;
             Destroy(gameObject);
         }
